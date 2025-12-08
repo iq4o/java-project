@@ -74,4 +74,5 @@ public DigitalItem(String title, double price) {
     }
         DigitalItem item = (DigitalItem) otherItem;
         return this.title.equalsIgnoreCase(item.title);
+    
 }
