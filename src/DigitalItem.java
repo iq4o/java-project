@@ -1,30 +1,28 @@
 public abstract class DigitalItem {
     private String title;
     private double price;
-   private boolean rented; 
+    private boolean rented; 
 
-public DigitalItem(String title, double price) {
+    public DigitalItem(String title, double price) {
         this.title = title;
         this.price = price;
         this.rented = false;
     }
 
-   public String getTitle() {
-
+    public String getTitle() {
         return title; 
-   }
+    }
     
     public double getPrice() {
-          return price; 
+        return price; 
     }
+
     public boolean isRented() {
-          return rented;
+        return rented;
     }
 
-    public void setTitle(String title){
-
+    public void setTitle(String title) {
         this.title = title;
-
     }
 
     public void setPrice(double price) {
@@ -34,32 +32,24 @@ public DigitalItem(String title, double price) {
     public void setRented(boolean rented) {
         this.rented = rented;
     } 
-     public void rentItem (){ 
 
-        if (!this.rented){
-
-            this.rented = false;
-            
+    public void rentItem() { 
+        if (!this.rented) {
+            this.rented = true;  
         }
+    } 
 
-     } 
-
-     public void returnItem (){ 
-
-        if (this.rented){
-
-            this.rented = true;
-            
+    public void returnItem() { 
+        if (this.rented) {
+            this.rented = false;  
         }
+    }
 
-     }
-
-     public abstract double calculateRentalPrice();
-
+    public abstract double calculateRentalPrice();
 
     @Override 
     public String toString() {
-        
+        return title + " - $" + price + " (Rented: " + rented + ")";
     }
     
     @Override 
@@ -71,8 +61,7 @@ public DigitalItem(String title, double price) {
             return false;
         }
         
-    }
         DigitalItem item = (DigitalItem) otherItem;
         return this.title.equalsIgnoreCase(item.title);
-    
+    }
 }
